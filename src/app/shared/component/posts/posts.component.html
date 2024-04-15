@@ -1,0 +1,16 @@
+
+
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="text-center my-4">
+            Add Posts
+            <button
+            (click)="onAddPost()" mat-mini-fab>
+                <mat-icon>add</mat-icon>
+            </button>
+        </h1>
+    </div>
+    <div class="col-md-6 offset-md-3 d-flex flex-column-reverse">
+        <app-post-card [postObj]="post" *ngFor="let post of postArr"></app-post-card>
+    </div>
+</div>

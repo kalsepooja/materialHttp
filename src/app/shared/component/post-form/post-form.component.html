@@ -1,0 +1,36 @@
+
+<form [formGroup]="postform" (ngSubmit)="onPostAdd()">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" formControlName="title" id="title" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="body">Content</label>
+        <textarea id="body" formControlName="body" rows="4" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="userId">UserId</label>
+        <select class="form-control" formControlName="userId">
+            <option [value]="val" *ngFor="let val of [1,2,3,4,5,6,7,8,9,10]">
+            {{val}}
+            </option>
+        </select>
+    </div>
+    <div class="text-right">
+     <button mat-raised-button color="primary"
+        *ngIf="!isEditableMode"
+        [disabled]="postform.invalid"
+        type="submit">
+            Add Posts
+    </button>
+
+       <button mat-raised-button 
+       type="button"
+       *ngIf="isEditableMode"
+       [disabled]="postform.invalid"
+       (click)="onUpdate()"
+       color="primary">
+         update Posts
+       </button>
+    </div>
+</form>
